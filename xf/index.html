@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广西科技大学平均学分绩点计算器</title>
+    <link rel="icon" href="https://files.superbed.cn/store/superbed/2c/61/659e7a14871b83018a852c61.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://pic.imgdb.cn/item/65bb5beb871b83018a3be02d.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            margin: 0;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+            /* 将文本居中对齐 */
+        }
+
+        table {
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 100px 20px 20px; /* 调整padding-top值为70px */
+            background-color: rgba(255, 255, 255, 0.8);
+            /* 设置半透明白色背景 */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+            /* 为了让校徽的位置相对于此容器定位 */
+        }
+        .ftcontainer {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0px 20px 20px; /* 调整padding-top值为70px */
+            background-color: rgba(255, 255, 255, 0.8);
+            /* 设置半透明白色背景 */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+            /* 为了让校徽的位置相对于此容器定位 */
+        }
+        h2,h3 {
+            color: #333;
+        }
+        footer{
+            color:rgb(255, 0, 0);
+        }
+        
+        
+        footer h5,p,h4,h3,td,th{
+            color: #000000;
+        }
+
+        footer a {
+            font-size: 23px; /* 设置文字大小为30px */
+            font-family: Roboto, sans-serif;
+            color: #000000;
+            text-decoration: none;
+        }
+      
+
+        footer a:hover {
+            color: #1f1906;
+        }
+                
+        .rounded-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: block;
+            margin: 10px auto;
+        }
+
+        img {
+            max-width: 100px;
+            /* 校徽的最大宽度 */
+            position: absolute;
+            /* 相对于.container进行定位 */
+            top: 10px;
+            /* 调整校徽的垂直位置 */
+            left: calc(50% - 50px);
+            /* 居中定位校徽 */
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .file-upload-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .file-upload-label {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .box {
+            width: 100px;
+            height: 30px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            background-color: #13c382;
+            color: #000000;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .jc {
+            width: 200px;
+            height: 20px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            background-color: #8b9ce6;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .file-upload-label:hover {
+            background-color: #0056b3;
+        }
+
+        #loading {
+            display: none;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #result {
+            display: none;
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        #averageGPA {
+            font-weight: bold;
+            color: #333;
+        }
+
+        #calculateButton {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #calculateButton:hover {
+            background-color: #218838;
+        }
+       
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="https://pic.imgdb.cn/item/65bb31cd871b83018ab4a211.png" alt="校徽">
+        <h2>广西科技大学</h2>
+        <h3>平均学分计算器</h3>
+        <div class="file-upload-container">
+            <label for="fileInput" class="file-upload-label" id="fileInputLabel">选择文件</label>
+            <input type="file" id="fileInput" accept=".csv, .xlsx, .xls" onchange="updateFileName()">
+        </div>
+        <button id="calculateButton" onclick="calculateAverageGPA()">计算</button>
+
+        <div id="loading">正在加载...</div>
+
+        <div id="result">
+            <h3>计算结果</h3>
+            <p>平均学分绩点: <span id="averageGPA"></span></p>
+        </div>
+    </div>
+    <footer><div class="ftcontainer">
+        <h3>开发:自动化_东</h3>
+        <div class="box"><a href="https://jnjnjnn.github.io/index">JN工具箱</a></div>
+        
+        <div>
+            
+                <h2>使用方法及注意事项</h2>
+                <h3>直接上传导出的成绩即可<br>必须要有学分，绩点，学分绩点和成绩这四个数据</h3>
+                <div class="jc"><a href="https://pic.imgdb.cn/item/65bbb858871b83018ab1b04a.jpg">点我查看示例图片</a></div>
+                </div><h1>注意!</h1>
+                <p>1、补考或者重修的绩点看下面的表<br>2、如果上传文档计算不了,可以<a href="https://jnjnjnn.github.io/index/jsq">点击我</a>跳转到手动输入数据计算</p>
+                <p>计算方法:<br>平均学分绩点=∑(课程学分×课程绩点)÷∑课程学分</p>
+                <p>绩点说明</p>
+                <table border="1">
+                    <tr>
+                        <th>成绩(绩点)</th>
+                        <th>正常考核</th>
+                        <th>补考或重修</th>
+                    </tr>
+                    <tr>
+                        <td>90—100，优秀</td>
+                        <td>9</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>80—90（不含90），良好</td>
+                        <td>8</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>70—80（不含80），中等</td>
+                        <td>7</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>60—70（不含70），及格</td>
+                        <td>6</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>0—60（不含60），不及格</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+    <script>
+        function calculateAverageGPA() {
+            var fileInput = document.getElementById('fileInput');
+            var file = fileInput.files[0];
+
+            if (!file) {
+                alert('请选择一个文件');
+                return;
+            }
+
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var data = e.target.result;
+                var workbook = XLSX.read(data, { type: 'binary' });
+
+                var sheet_name_list = workbook.SheetNames;
+                var sheet = workbook.Sheets[sheet_name_list[0]];
+                var csvData = XLSX.utils.sheet_to_csv(sheet);
+
+                Papa.parse(csvData, {
+                    complete: function (results) {
+                        var totalCredits = 0;
+                        var totalWeightedGP = 0;
+                        var countCoursesWithGrades = 0;
+
+                        var creditIndex = findColumnIndex(results.data[0], '学分');
+                        var gradeIndex = findColumnIndex(results.data[0], '成绩');
+                        var gpaIndex = findColumnIndex(results.data[0], '绩点');
+
+                        for (var i = 1; i < results.data.length; i++) {
+                            var columns = results.data[i];
+                            if (columns.length >= Math.max(creditIndex, gradeIndex, gpaIndex) + 1) {
+                                var gpa = parseFloat(columns[gpaIndex]);
+                                if (!isNaN(gpa)) {
+                                    var credit = parseFloat(columns[creditIndex]);
+                                    totalCredits += credit;
+                                    totalWeightedGP += credit * gpa;
+                                    countCoursesWithGrades++;
+                                }
+                            }
+                        }
+
+                        if (countCoursesWithGrades > 0) {
+                            var averageGPA = totalWeightedGP / totalCredits;
+                            document.getElementById('averageGPA').textContent = averageGPA.toFixed(2);
+                            document.getElementById('result').style.display = 'block';
+                        } else {
+                            alert('文件格式不正确，请确保文件中包含学分、成绩和绩点的数据');
+                        }
+                        document.getElementById('loading').style.display = 'none';
+                    }
+                });
+            };
+
+            reader.onerror = function () {
+                alert('读取文件时出错');
+                document.getElementById('loading').style.display = 'none';
+            };
+
+            document.getElementById('loading').style.display = 'block';
+            if (file.name.endsWith('.csv')) {
+                reader.readAsText(file);
+            } else {
+                reader.readAsBinaryString(file);
+            }
+        }
+
+        function findColumnIndex(row, columnName) {
+            for (var i = 0; i < row.length; i++) {
+                if (row[i] && row[i].trim() === columnName) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        function updateFileName() {
+            var fileInput = document.getElementById('fileInput');
+            var fileName = fileInput.files[0].name;
+            document.getElementById('fileInputLabel').textContent = fileName;
+        }
+    </script>
+</body>
+
+</html>
