@@ -26,7 +26,8 @@
         }
 
         .content-container {
-            background-color: rgba(93, 72, 100, 0.6); /* 淡蓝色，其中0.6表示透明度 */
+            background-color: rgba(93, 72, 100, 0.6);
+            /* 淡蓝色，其中0.6表示透明度 */
             padding: 20px;
             border-radius: 10px;
             margin: 50px auto;
@@ -172,45 +173,47 @@
         </a>
         <h6>开发:自动化_东</h6>
         <h6>JN工具箱(点击图片跳转)</h6>
-        <div><div class="content-container">
-            <h2>使用方法及注意事项（移动端有bug，有空再修）</h2>
-            <h5>输入课程数,然后点击计算<br>先输入学分再输入获得的绩点<br>最后保存<br></h5>
-            <p>计算方法:<br>平均学分绩点=∑(课程学分×课程绩点)÷∑课程学分</p>
-            <p>绩点说明</p>
-            <table border="1">
-                <tr>
-                    <th>成绩(绩点)</th>
-                    <th>正常考核</th>
-                    <th>补考或重修</th>
-                </tr>
-                <tr>
-                    <td>90—100，优秀</td>
-                    <td>9</td>
-                    <td>7</td>
-                </tr>
-                <tr>
-                    <td>80—90（不含90），良好</td>
-                    <td>8</td>
-                    <td>6</td>
-                </tr>
-                <tr>
-                    <td>70—80（不含80），中等</td>
-                    <td>7</td>
-                    <td>5</td>
-                </tr>
-                <tr>
-                    <td>60—70（不含70），及格</td>
-                    <td>6</td>
-                    <td>4</td>
-                </tr>
-                <tr>
-                    <td>0—60（不含60），不及格</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-            </table>
-            <p>1、成绩栏输入对应课程的百分制总评成绩(如果课程是经过补考或重修才通过的，则只输入该课程补考或重修通过的那次的成绩);<br>2、每输入一门课程的成绩,绩点值就会发生变化,所有课程输入完毕后的绩点才是最终绩点；<br>
-            </p></div>
+        <div>
+            <div class="content-container">
+                <h2>使用方法及注意事项（移动端有bug，有空再修）</h2>
+                <h5>输入课程数,然后点击计算<br>先输入学分再输入获得的绩点<br>最后保存<br></h5>
+                <p>计算方法:<br>平均学分绩点=∑(课程学分×课程绩点)÷∑课程学分</p>
+                <p>绩点说明</p>
+                <table border="1">
+                    <tr>
+                        <th>成绩(绩点)</th>
+                        <th>正常考核</th>
+                        <th>补考或重修</th>
+                    </tr>
+                    <tr>
+                        <td>90—100，优秀</td>
+                        <td>9</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>80—90（不含90），良好</td>
+                        <td>8</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>70—80（不含80），中等</td>
+                        <td>7</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>60—70（不含70），及格</td>
+                        <td>6</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>0—60（不含60），不及格</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                </table>
+                <p>1、成绩栏输入对应课程的百分制总评成绩(如果课程是经过补考或重修才通过的，则只输入该课程补考或重修通过的那次的成绩);<br>2、每输入一门课程的成绩,绩点值就会发生变化,所有课程输入完毕后的绩点才是最终绩点；<br>
+                </p>
+            </div>
     </footer>
     <script>
         let coursesCount = 0;
@@ -258,6 +261,13 @@
             document.getElementById('result').innerHTML = '';
             $('#inputModal').modal('hide');
         }
+
+        // 添加移动端触摸事件监听器
+        document.addEventListener('touchstart', function (event) {
+            if (event.target.id === 'inputModal') {
+                $('#inputModal').modal('hide');
+            }
+        });
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
