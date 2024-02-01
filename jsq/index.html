@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广西科技大学平均学分绩点计算器</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://pic.imgdb.cn/item/65bb3550871b83018ac0f5ee.jpg');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            color: #fff;
+        }
+
+        h2 {
+            color: #fff;
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 8px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #coursesList {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        #result {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* 模态框文字颜色 */
+        .modal-content {
+            color: #000;
+        }
+
+        /* 校徽样式 */
+        #schoolEmblem {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 校徽 -->
+        <img src="https://pic.imgdb.cn/item/65bb31cd871b83018ab4a211.png" alt="校徽" id="schoolEmblem">
+
+        <h2>广西科技大学平均学分绩点计算器</h2>
+
+        <div class="form-group row justify-content-center">
+            <label for="courses" class="col-sm-3 col-form-label">输入课程数：</label>
+            <div class="col-sm-6">
+                <input type="number" id="courses" class="form-control" placeholder="请输入课程数" min="1" required>
+            </div>
+        </div>
+
+        <div class="form-group row justify-content-center">
+            <div class="col-sm-9">
+                <button onclick="calculateGPA()" class="btn btn-primary">计算</button>
+                <button onclick="resetForm()" class="btn btn-danger">重置</button>
+            </div>
+        </div>
+
+        <div id="coursesList"></div>
+
+        <div id="result"></div>
+    </div>
+
+    <!-- 模态框 -->
+    <div class="modal fade" id="inputModal" tabindex="-1" role="dialog" aria-labelledby="inputModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="inputModalLabel">请输入学分和绩点</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="credit">学分：</label>
+                        <input type="number" class="form-control" id="credit" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gradePoint">绩点：</label>
+                        <input type="number" class="form-control" id="gradePoint" min="0" step="0.01" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" onclick="saveInput()">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let coursesCount = 0;
+        let coursesEntered = 0;
+        let totalCredits = 0;
+        let totalGPA = 0;
+
+        function calculateGPA() {
+            coursesCount = parseInt(document.getElementById('courses').value);
+            coursesEntered = 0;
+            totalCredits = 0;
+            totalGPA = 0;
+
+            $('#inputModal').modal('show');
+        }
+
+        function saveInput() {
+            const credit = parseFloat(document.getElementById('credit').value);
+            const gradePoint = parseFloat(document.getElementById('gradePoint').value);
+
+            if (isNaN(credit) || isNaN(gradePoint) || credit < 0 || gradePoint < 0) {
+                alert("请输入有效的正数学分和绩点！");
+                return;
+            }
+
+            totalCredits += credit;
+            totalGPA += credit * gradePoint;
+
+            const coursesListDiv = document.getElementById('coursesList');
+            coursesListDiv.innerHTML += `课程 ${++coursesEntered}： 学分 ${credit}， 绩点 ${gradePoint}<br>`;
+
+            if (coursesEntered < coursesCount) {
+                // 清空输入框，继续输入下一个课程
+                document.getElementById('credit').value = '';
+                document.getElementById('gradePoint').value = '';
+            } else {
+                // 计算平均学分绩点
+                const averageGPA = totalGPA / totalCredits;
+                document.getElementById('result').innerHTML = `平均学分绩点：${averageGPA.toFixed(2)}`;
+                // 关闭模态框
+                $('#inputModal').modal('hide');
+            }
+        }
+
+        function resetForm() {
+            document.getElementById('courses').value = '';
+            document.getElementById('coursesList').innerHTML = '';
+            document.getElementById('result').innerHTML = '';
+            $('#inputModal').modal('hide');
+        }
+    </script>
+
+    <!-- 文本添加到底部 -->
+    <footer>
+        <p>这里是底部文本，你可以添加任何你想要显示的信息。</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
