@@ -2,60 +2,45 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8"><!--为搜索引擎定义关键词-->
+    <meta charset="UTF-8">
     <meta name="keywords" content="学分绩点计算器">
-    <!--为网页定义描述内容 用于告诉搜索引擎，你网站的主要内容-->
     <meta name="description" content="学分绩点计算器">
-    <!--定义网页作者-->
     <meta name="author" content="JN">
-    <!--网站版权-->
-    <meta name="copyright" content="JN下载中心">
-    <!--指定IE和Chrome使用最新版本渲染当前页面-->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <!--指导浏览器如何缓存某个响应以及缓存多长时间-->
-    <!--no-cache:先发送请求,与服务器确认该资源是否被更改,如果未被更改,则使用缓存
-        no-store:不允许缓存,每次都要去服务器上,下载完整的响应(安全措施)
-        public:缓存所有响应,但并非必须,因为max-age也可以做到相同效果
-        private:只为单个用户缓存,因此不允许任何中继进行缓存,(比如说CDN就不允许缓存private的响应)
-        maxage:当前请求开始,该响应在多久内能被缓存和重用,而不去服务器重新请求,例:max-age=60表示响应可以再缓存和重用60秒
-        -->
-    <meta http-equiv="cache-control" content="no-cache">
-    <!--禁止百度自动转码 用于禁止当前页面在移动端浏览时,被百度自动转码,虽然百度的本意是好的,但是转码效果很多时候却不尽人意-->
-    <!--meta http-equiv="Cache-Control" content="no-siteapp" /-->
-    <!-- 分享网页时显示的标题-QQ-->
-    <meta itemprop="name" content="学分计算器" />
-    <!-- 分享网页时显示的缩略图-QQ-->
-    <meta itemprop="image" content="/" />
-    <!--分享网页时时显示的内容-QQ-->
-    <meta name="description" itemprop="description" content="学分计算器" />
-    <!--设置自动适应电脑和手机屏幕-->
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0, user-scalable=no minimal-ui">
-    <!--设置浏览器栏favicon图标-->
+    <title>广西科技大学平均学分绩点计算器</title>
     <link rel="icon" href="https://files.superbed.cn/store/superbed/2c/61/659e7a14871b83018a852c61.png"
         type="image/x-icon" />
-    <!--定义搜索引擎爬虫的索引方式-->
-    <!--index,follow:可以抓取本页，而且可以顺着本页继续索引别的链接
-        noindex,follow:不许抓取本页，但是可以顺着本页抓取索引别的链接
-        index,nofollow:可以抓取本页，但是不许顺着本页抓取索引别的链接
-        noindex,nofollow:不许抓取本页，也不许顺着本页抓取索引别的链接
-        -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>广西科技大学平均学分绩点计算器</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-         body {
-    font-family: Arial, sans-serif;
-    background-image: url('https://pic.imgdb.cn/item/65bb5beb871b83018a3be02d.jpg');
-    background-size: cover; /* 将背景图缩放以覆盖整个容器 */
-    background-attachment: fixed; /* 让背景图固定在视口中 */
-    background-position: center;
-    text-align: center;
-    margin: 0;
-    padding: 20px;
-    color: #fff;
-}
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://pic.imgdb.cn/item/65bb5beb871b83018a3be02d.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            color: #fff;
+        }
 
+        .content-container {
+            background-color: rgba(93, 72, 100, 0.6); /* 淡蓝色，其中0.6表示透明度 */
+            padding: 20px;
+            border-radius: 10px;
+            margin: 50px auto;
+            max-width: 800px;
+        }
+
+        .content-container h2,
+        .content-container p {
+            color: #fff;
+        }
+
+        table {
+            margin: 0 auto;
+        }
 
         h2 {
             color: #fff;
@@ -78,58 +63,52 @@
         button:hover {
             background-color: #0056b3;
         }
+
         #coursesList {
             margin-top: 20px;
-            text-align: center; /* 将文本居中对齐 */
+            text-align: center;
         }
 
-        /* 为课程列表中的条目设置居中样式 */
-        #coursesList > div {
+        #coursesList>div {
             display: inline-block;
-            text-align: left; /* 将每个条目的文本居左对齐 */
+            text-align: left;
         }
-       
+
 
         #result {
-        font-weight: bold;
-        margin-top: 20px;
-        font-size: 24px; /* 修改字体大小为24像素 */
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 24px;
+            color: #f3ff08;
         }
 
-        /* 模态框文字颜色 */
         .modal-content {
             color: #000;
         }
 
-        footer h5{
-            color: #f3ff08; /* footer的字体颜色设置 */
-        }
-        footer h6{
-            color: #ffffff; /* footer的字体颜色设置 */
+
+        footer h5 {
+            color: #ffffff;
         }
 
 
         .rounded-image {
-            width: 50px; /* 设置图片宽度为50像素 */
-            height: 50px; /* 设置图片高度为50像素 */
-            border-radius: 10px; /* 设置圆角的半径，可以根据需要调整 */
-            display: block; /* 确保图片作为块元素，以便设置宽度、高度等属性 */
-            margin: 10px auto; /* 设置图片的外边距，使其水平居中 */
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: block;
+            margin: 10px auto;
         }
 
-            /* 设置链接文本的颜色 */
         footer a {
-            color: #007bff; /* 设置链接文本颜色为蓝色，可以根据需要调整 */
-            text-decoration: none; /* 移除下划线 */
+            color: #007bff;
+            text-decoration: none;
         }
 
-        /* 设置链接悬停时的文本颜色 */
         footer a:hover {
-            color: #1f1906; /* 设置悬停时的文本颜色为深蓝色，可以根据需要调整 */
+            color: #1f1906;
         }
 
-
-        /* 校徽样式 */
         #schoolEmblem {
             width: 100px;
             height: 100px;
@@ -139,31 +118,26 @@
 </head>
 
 <body>
-    <div class="container">
-        <!-- 校徽 -->
-        <img src="https://pic.imgdb.cn/item/65bb31cd871b83018ab4a211.png" alt="校徽" id="schoolEmblem">
-
-        <h2>广西科技大学平均学分绩点计算器</h2>
-
-        <div class="form-group row justify-content-center">
-            <label for="courses" class="col-sm-3 col-form-label">输入课程数：</label>
-            <div class="col-sm-6">
-                <input type="number" id="courses" class="form-control" placeholder="请输入课程数" min="1" required>
+    <div class="content-container">
+        <div class="container">
+            <img src="https://pic.imgdb.cn/item/65bb31cd871b83018ab4a211.png" alt="校徽" id="schoolEmblem">
+            <h2>广西科技大学平均学分绩点计算器</h2>
+            <div class="form-group row justify-content-center">
+                <label for="courses" class="col-sm-3 col-form-label">输入课程数：</label>
+                <div class="col-sm-6">
+                    <input type="number" id="courses" class="form-control" placeholder="请输入课程数" min="1" required>
+                </div>
             </div>
-        </div>
-
-        <div class="form-group row justify-content-center">
-            <div class="col-sm-9">
-                <button onclick="calculateGPA()" class="btn btn-primary">计算</button>
-                <button onclick="resetForm()" class="btn btn-danger">重置</button>
+            <div class="form-group row justify-content-center">
+                <div class="col-sm-9">
+                    <button onclick="calculateGPA()" class="btn btn-primary">计算</button>
+                    <button onclick="resetForm()" class="btn btn-danger">重置</button>
+                </div>
             </div>
+            <div id="coursesList"></div>
+            <div id="result"></div>
         </div>
-
-        <div id="coursesList"></div>
-
-        <div id="result"></div>
     </div>
-    <!-- 模态框 -->
     <div class="modal fade" id="inputModal" tabindex="-1" role="dialog" aria-labelledby="inputModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -191,7 +165,54 @@
             </div>
         </div>
     </div>
-
+    <footer>
+        <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=2)" width="45%" color=#f8ff28 SIZE=900>
+        <a href="https://jnjnjnn.github.io/index">
+            <img src="https://files.superbed.cn/store/superbed/2c/61/659e7a14871b83018a852c61.png" alt="JN工具箱"
+                class="rounded-image">
+        </a>
+        <h6>开发:自动化_东</h6>
+        <h6>JN工具箱(点击图片跳转)</h6>
+        <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=2)" width="45%" color=#0f15c6 SIZE=99999>
+        <div><div class="content-container">
+            <h2>使用方法及注意事项</h2>
+            <p>计算方法:<br>平均学分绩点=∑(课程学分×课程绩点)÷∑课程学分</p>
+            <p>绩点说明</p>
+            <table border="1">
+                <tr>
+                    <th>成绩(绩点)</th>
+                    <th>正常考核</th>
+                    <th>补考或重修</th>
+                </tr>
+                <tr>
+                    <td>90—100，优秀</td>
+                    <td>9</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>80—90（不含90），良好</td>
+                    <td>8</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>70—80（不含80），中等</td>
+                    <td>7</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>60—70（不含70），及格</td>
+                    <td>6</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>0—60（不含60），不及格</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+            </table>
+            <p>输入课程数,然后点击计算<br>先输入学分再输入获得的绩点<br>最后保存<br><br>注意事项<br>1、成绩栏输入对应课程的百分制总评成绩(如果课程是经过补考或重修才通过的，则只输入该课程补考或重修通过的那次的成绩);<br>2、每输入一门课程的成绩,绩点值就会发生变化,所有课程输入完毕后的绩点才是最终绩点；<br>
+            </p></div>
+    </footer>
     <script>
         let coursesCount = 0;
         let coursesEntered = 0;
@@ -223,14 +244,11 @@
             coursesListDiv.innerHTML += `课程 ${++coursesEntered}： 学分 ${credit}， 绩点 ${gradePoint}<br>`;
 
             if (coursesEntered < coursesCount) {
-                // 清空输入框，继续输入下一个课程
                 document.getElementById('credit').value = '';
                 document.getElementById('gradePoint').value = '';
             } else {
-                // 计算平均学分绩点
                 const averageGPA = totalGPA / totalCredits;
                 document.getElementById('result').innerHTML = `平均学分绩点：${averageGPA.toFixed(2)}`;
-                // 关闭模态框
                 $('#inputModal').modal('hide');
             }
         }
@@ -242,23 +260,6 @@
             $('#inputModal').modal('hide');
         }
     </script>
-
-    <!-- 文本添加到底部 -->
-    <footer>
-        <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=2)" width="45%" color=#f8ff28 SIZE=900>
-        
-        <a href="https://jnjnjnn.github.io/index">
-            <img src="https://files.superbed.cn/store/superbed/2c/61/659e7a14871b83018a852c61.png" alt="JN工具箱" class="rounded-image">
-        </a>
-        <h6>开发:自动化_东</h6>
-        <h6>JN工具箱(点击图片跳转)</h6>
-        <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=2)" width="45%" color=#0f15c6 SIZE=99999>
-        <h5>使用方法及注意事项</h5>
-        
-    
-    </footer>
-
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
