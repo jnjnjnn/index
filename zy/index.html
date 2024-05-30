@@ -1,497 +1,59 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
-
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>小东同学</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="小东同学">
-    <meta name="keywords" content="小东同学">
-    <meta name="author" content="lmpixels">
-    <link rel="shortcut icon" href="https://pic.imgdb.cn/item/65a67702871b83018a134551.png">
-    <link rel="stylesheet" href="css/reset.css" type="text/css">
-    <link rel="stylesheet" href="css/bootstrap-grid.min.css" type="text/css">
-    <link rel="stylesheet" href="css/animations.css" type="text/css">
-    <link rel="stylesheet" href="css/perfect-scrollbar.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="css/main.css" type="text/css">
-    <script src="js/modernizr.custom.js"></script>
+    <title>5秒倒计时后自动跳转</title>
+    <style>
+        body {
+            text-align: center;
+            padding-top: 50px;
+            font-family: Arial, sans-serif;
+        }
+        #countdown {
+            font-size: 2em;
+            color: #333;
+            margin: 20px 0;
+        }
+        #redirecting {
+            display: none;
+            font-size: 1.5em;
+            color: #666;
+        }
+    </style>
+    <script>
+        // 设置一个函数，用于在5秒后跳转到指定的URL
+        function autoRedirect() {
+            window.location.href = 'https://jnjnjnn.cn'; // 将这里的URL替换为你想要跳转的目标地址
+        }
+
+        // 设置一个函数，用于显示倒计时
+        function startCountdown(seconds) {
+            var countdownElement = document.getElementById('countdown');
+            var redirectingElement = document.getElementById('redirecting');
+            countdownElement.innerHTML = seconds; // 显示剩余秒数
+
+            if (seconds > 0) {
+                setTimeout(function() {
+                    startCountdown(seconds - 1); // 递归调用，每次减少1秒
+                }, 1000); // 每秒更新一次倒计时
+            } else {
+                countdownElement.style.display = 'none';
+                redirectingElement.style.display = 'block';
+                autoRedirect(); // 执行跳转
+            }
+        }
+
+        // 页面加载完成后开始倒计时
+        window.onload = function() {
+            startCountdown(5); // 开始5秒倒计时
+        };
+    </script>
 </head>
-
 <body>
-    <div class="lm-animated-bg" style="background-image: url(https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN);"></div>
-    <div class="preloader">
-        <div class="preloader-animation">
-            <div class="preloader-spinner"></div>
-        </div>
-    </div>
-    <div class="page">
-        <div class="page-content">
-            <header id="site_header" class="header mobile-menu-hide">
-                <div class="header-content">
-                    <div class="header-photo">
-                        <img src="https://pic.imgdb.cn/item/65a67702871b83018a134551.png" alt="小东同学">
-                    </div>
-                    <div class="header-titles">
-                        <h2>小东同学</h2>
-                        <h4>青春的力量<br>不是时光的力量<br>而是梦想的力量</h4>
-                    </div>
-                </div>  
-                <ul class="main-menu">
-                    <li class="active">
-                        <a href="#2" class="nav-anim">
-                            <span class="menu-icon lnr lnr-home"></span>
-                            <span class="link-text">高考加油</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#关于我们" class="nav-anim">
-                            <span class="menu-icon lnr lnr-graduation-hat"></span>
-                            <span class="link-text">关于我们</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#校园风光" class="nav-anim">
-                            <span class="menu-icon lnr lnr-briefcase"></span>
-                            <span class="link-text">校园风光</span>
-                        </a>
-                    </li>
+    <h1>更换了服务器</h1>
+    <p>页面将在5秒后自动跳转到另一个页面。</p>
+    <div id="countdown">5</div> <!-- 显示倒计时的元素 -->
+    <div id="redirecting">正在跳转...</div> <!-- 倒计时结束后的提示 -->
 
-
-                </ul>
-                <div class="social-links">
-                    <ul>
-                    </ul>
-                </div>
-                <div class="header-buttons">
-                    <a href="http://jnjnjnn.github.io/index" target="_blank" class="btn btn-primary">工具箱</a>
-                </div>
-                <div class="copyrights">© 2024 小东同学.</div>
-            </header>
-            <div class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="lmpixels-arrows-nav">
-                <div class="lmpixels-arrow-right">
-                    <i class="lnr lnr-chevron-right"></i>
-                </div>
-                <div class="lmpixels-arrow-left">
-                    <i class="lnr lnr-chevron-left"></i>
-                </div>
-            </div>
-            <div class="content-area">
-                <div class="animated-sections">
-                    <section data-id="2" class="animated-section">
-                        <div class="page-title">
-                            <h2>高考<span>加油</span>
-                            </h2>
-                        </div>
-                        <div class="section-content">
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-7">
-                                    <h2>我们是23届的学长</h2><br>
-                                    <h3>亲爱的学弟学妹们，</h3>
-                                    <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;你们好！在这个充满挑战与希望的时刻，高考，不仅仅是一场考试，它更是你们人生旅途中的一次重要考验。你们已经付出了无数的努力和汗水，现在是时候展现你们的才华和决心了。<br>
-                    
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请记住，无论高考的结果如何，它都不会定义你们的全部。你们的未来充满了无限可能，而高考只是其中的一个起点。保持信心，保持冷静，相信自己的努力和准备。你们的每一分努力，都将在考场上转化为你们的力量。<br>
-                    
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;愿你们在高考的征途上，不仅收获知识和智慧，更收获勇气和坚韧。愿你们的笔尖流淌出最真挚的答案，愿你们的心中充满对未来的美好憧憬。<br>
-                    
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;加油，学弟学妹们！你们是最棒的，你们的未来一定光明灿烂。我们在这里，为你们加油，为你们骄傲！<br>
-                                        <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;不到高考前最后都不要放弃，高考前的考试都不能决定未来，不要气馁或者骄傲。
-                                            如果你们有什么问题或者困惑，可以随时联系我们，我会尽力帮助你们。祝你们高考顺利，梦想成真！
-                                            后续高考志愿及其他问题可以加群<a href="https://qm.qq.com/q/dfS3i0r13q">821986108</a>或者邮箱:jnjnjnn@163.com咨询（免费）。我们在看见后会及时回复。</h4>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/1.jpg" alt="500" width="300" height="300">
-                    </section>
-                    <section data-id="关于我们" class="animated-section">
-                        <div class="page-title">
-                            <h2>关于<span>我们</span>
-                            </h2>
-                        </div>
-                        <div class="section-content">
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-7">
-                                    
-                                    </div>
-                                    <br></div><h4>排名不分先后,蓝色字可点击跳转</h4><div><br>
-                                    <h3>黄海东</h3>
-                                    <img src="https://pic.imgdb.cn/item/6651421dd9c307b7e94031f7.png" alt="2" width="50" height="50">
-                                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现就读于<a href="https://baike.baidu.com/item/%E5%B9%BF%E8%A5%BF%E7%A7%91%E6%8A%80%E5%A4%A7%E5%AD%A6/6412308">广西科技大学</a>自动化专业,获得2023广西科大电子设计大赛一等奖，自动化实验室负责人，电气信息创新协会办公室副主任。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;科大优点：广西科技大学是位处于柳州的一所以工为主，包含工、管、理、经、文、法、艺术、教育、医学等9大学科门类的多科性高等学校.是广西唯一一所科技大学。学校分为文昌校区（主校区）、柳东校区、柳石校区和2个临床医学院。国家特色专业：<a href="https://baike.baidu.com/item/%E5%9C%9F%E6%9C%A8%E5%B7%A5%E7%A8%8B/389380">土木工程、<a href="https://baike.baidu.com/item/%E8%87%AA%E5%8A%A8%E5%8C%96/24604235">自动化</a>。文昌校区在柳州城中，靠近万达、万象城，两千余亩；柳东校区在柳东新区，新校区，宿舍很新，有空调洗衣机等，教室也配备有中央空调。<br><a href="https://www.gxust.edu.cn/zsw/lnfsx.jsp?urltype=tree.TreeTempUrl&wbtreeid=1051">往年专业分数线</a>
-                                     </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;不足：柳东校区在山卡拉，地处偏僻 娱乐设施少，这个校区很小（不过小有小的好处，就是离教室不是很远），没田径场，<a href="https://www.bilibili.com/video/BV1w84y1a7Fj/?spm_id_from=333.337.search-card.all.click&vd_source=0bd1e74e0fe7e200ff74a89bbb96cc11">前几年校长还进去了</a>，被名字骗进来的，不像大学，别来。
-                                    
-                                    <br>
-                                    <h3>刘显福</h3>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现就读于<a href="https://baike.baidu.com/item/%E6%A1%82%E6%9E%97%E7%94%B5%E5%AD%90%E7%A7%91%E6%8A%80%E5%A4%A7%E5%AD%A6/750205">桂林电子科技大学</a>智能制造工程<br>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;桂林电子科技大学在广西区内的工科院校中排名靠前，是全国四所电子科技大学之一。学校的电子信息工程、软件技术、材料科学与工程等专业都比较不错。学校的就业情况较为良好，大部分招聘企业来自两广地区，包括互联网大厂、国企和央企等，薪资待遇本。<br><a
-                                        href="https://www.guet.edu.cn/zs/2023/0926/c548a107138/page.htm">往年专业分数线</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;优点：环境优美，实验设备齐全，实验室多，广西唯一的电子科技大学，教师队伍素质优良，校园较大，学校在珠三角地区已有较好的声望、被认可。
-                                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;缺点：略微有些偏僻，有早读得早起，有晚自习得晚归，学校看上去很大其实也不算大。宿舍六人间（个别四人间），不是上床下桌，晚上过11点10分断电脑桌和大灯的电（周末晚一点断）。
-                                    <br><br>
-
-                                    <h3>朱柳彬</h3>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现就读于<a
-                                        href="https://baike.baidu.com/item/%E6%A1%82%E6%9E%97%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6/9065597">桂林理工大学</a>计算机类专业。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;桂工优点:桂林理工大学是一所以工学为主，包含工、理、管、文、经、法、艺、农8大学科门类的多科性教学研究型大学。其中特色专业有资源勘查工程、旅游管理、化学工程与工艺、勘查技术与工程、环境工程。四个校区中雁山校区和屏风校区为本科校区，雁山占地面积约2700亩，屏风校区500余亩。环境优美但离市区较远，需乘公交1小时（桂林站直达）。<a
-                                            href="https://zj.glut.edu.cn/index/lnfs.htm">往年分数线</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;桂工缺点:大一有三早一晚（早升旗、早操、早自习，晚自习）;每次收假（包括周末）当晚有45分钟的晚教育，四年都有，主要目的是确保你人还在，会点名;宿舍标配六人间，有空调，一号组团大部分宿舍是上床下桌，少部分宿舍为上下铺（一边是床一边是桌子），二号组团都是上下铺。目前教室空调是摆设，网传是电力不足。
-                                    <br><br>
-                                    <h3>周琦峰</h3>
-                                    <img src="https://pic.imgdb.cn/item/6650ac4fd9c307b7e9ca5849.jpg" alt="2" width="50" height="60">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现就读于<a href="https://baike.baidu.com/item/%E5%B9%BF%E8%A5%BF%E8%AD%A6%E5%AF%9F%E5%AD%A6%E9%99%A2/16834555">广西警察学院</a>刑事科学技术专业。<br>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在公安专业，你不仅能在精神和身体上得到充分的锻炼，还能显著提升你的社交技巧。学校图书馆藏书丰富，种类繁多，为你提供了丰富的知识资源，帮助你充实大脑。宿舍环境干净整洁，为学生提供了舒适的生活空间。此外，宿舍与教学楼之间的距离很近，确保你有足够的时间准备上课，无需匆忙赶路。学校的食堂共有三层，提供了多样化的餐饮选择，满足不同口味的需求。
-                                    <br>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;区别：公安专业可以参加学校<a href="https://baike.baidu.com/item/%E5%85%AC%E5%AE%89%E9%99%A2%E6%A0%A1%E8%81%94%E8%80%83/50483823">公安联考</a>，非公安则是相当于普通本科不能参加学校公安联考。
-                                    <br><br>
-                                    <h3>徐卫民</h3>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现就读于<a
-                                        href="https://baike.baidu.com/item/%E5%B9%BF%E8%A5%BF%E8%AD%A6%E5%AF%9F%E5%AD%A6%E9%99%A2/16834555">广西科技师范学院</a>物联网工程。
-                                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;广西科技师范学院(简称“广西科师”)为国家公办的全日制本科院校,是国家语言文字推广基地,国家级一流本科专业建设点,拥有国家备案众创空间,是国家“1+x”证书试点院校、教育部数据中国“百校工程”首批试点高校。<a href="https://zsw.gxstnu.edu.cn/info/1333/3278.htm">历年专业分数线</a>
-                                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;缺点：专业课上的水，基本都是靠自己学，期末考试全靠重点复习，学习氛围也一般，很难通过上课来学习专业技术，迷茫程度值拉满。总结评估专家来说就是我们学校很舍得花钱，但是“科技”相对薄弱，相关的实践太少，达不到锻炼我们的需求。
-
-
-                    </section>
-                    <section data-id="校园风光" class="animated-section">
-                        <div class="page-title">
-                            <h2>校园风光</h2>
-                        </div>
-                        <div class="section-content">
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-12">
-                                    <div class="portfolio-content">
-                                        <ul class="portfolio-filters">
-                                            <li class="active">
-                                                <a class="filter btn btn-sm btn-link" data-group="category_all">All</a>
-                                            </li>
-                                            <li>
-                                                <a class="filter btn btn-sm btn-link"
-                                                    data-group="category_detailed">桂林电子科技大学</a>
-                                            </li>
-                                            <li>
-                                                <a class="filter btn btn-sm btn-link"
-                                                    data-group="category_mockups">桂林理工大学</a>
-                                            </li>
-                                            <li>
-                                                <a class="filter btn btn-sm btn-link"
-                                                    data-group="category_soundcloud">广西科技大学</a>
-                                            </li>
-                                            <li>
-                                                <a class="filter btn btn-sm btn-link"
-                                                    data-group="category_vimeo-videos">广西警察学院</a>
-                                            </li>
-                                            <li>
-                                                <a class="filter btn btn-sm btn-link"
-                                                    data-group="category_youtube-videos">广西科技师范学院</a>
-                                            </li>
-                                        </ul>
-                                        <div class="portfolio-grid three-columns">
-                                            <figure class="item lbimage"
-                                                data-groups='["category_all", "category_mockups"]'>
-                                                <div class="portfolio-item-img">
-                                                    <img src="https://pic.imgdb.cn/item/665146fcd9c307b7e945bf17.jpg" alt="桂林理工大学飞雁亭" title="">
-                                                    <a class="lightbox" title="桂林理工大学飞雁亭"
-                                                        href="https://pic.imgdb.cn/item/66514544d9c307b7e9430563.jpg"></a>
-                                                </div>
-                                                <i class="far fa-image"></i>
-                                                <h4 class="name">桂林理工大学飞雁亭</h4>
-                                                <span class="category">桂林理工大学</span>
-                                            </figure>
-                                            
-                                            <figure class="item lbimage" data-groups='["category_all", "category_soundcloud"]'>
-                                                <div class="portfolio-item-img">
-                                                    <img src="https://pic.imgdb.cn/item/66516256d9c307b7e960932d.png" alt="广西科技大学文昌校区" title="">
-                                                    <a class="lightbox" title="广西科技大学文昌校区" href="https://pic.imgdb.cn/item/66516106d9c307b7e95e6c55.jpg"></a>
-                                                </div>
-                                                <i class="far fa-image"></i>
-                                                <h4 class="name">广西科技大学文昌校区</h4>
-                                                <span class="category">广西科技大学</span>
-                                            </figure>
-
-                                            <figure class="item lbimage" data-groups='["category_all", "category_mockups"]'>
-                                                <div class="portfolio-item-img">
-                                                    <img src="https://pic.imgdb.cn/item/66514a03d9c307b7e9485b3a.jpg" alt="桂林理工大学实验楼" title="">
-                                                    <a class="lightbox" title="桂林理工大学实验楼" href="https://pic.imgdb.cn/item/6651452dd9c307b7e942ef7b.jpg"></a>
-                                                </div>
-                                                <i class="far fa-image"></i>
-                                                <h4 class="name">桂林理工大学实验楼</h4>
-                                                <span class="category">桂林理工大学</span>
-                                            </figure>
-
-                                            <figure class="item lbimage" data-groups='["category_all", "category_youtube-videos"]'>
-                                                <div class="portfolio-item-img">
-                                                    <img src="https://pic.imgdb.cn/item/6651d93dd9c307b7e9ecd754.png" alt="广西科技师范学院" title="">
-                                                    <a class="lightbox" title="广西科技师范学院" href="https://pic.imgdb.cn/item/6651d96ed9c307b7e9ed0a6e.jpg"></a>
-                                                </div>
-                                                <i class="far fa-image"></i>
-                                                <h4 class="name">广西科技师范学院校门</h4>
-                                                <span class="category">广西科技师范学院</span>
-                                            </figure>
-
-                                            <figure class="item lbimage" data-groups='["category_all", "category_mockups"]'>
-                                                <div class="portfolio-item-img">
-                                                    <img src="https://pic.imgdb.cn/item/665162e8d9c307b7e9613133.png" alt="桂林理工大学教室" title="">
-                                                    <a class="lightbox" title="桂林理工大学教室" href="https://pic.imgdb.cn/item/66514534d9c307b7e942f59f.png"></a>
-                                                </div>
-                                                <i class="far fa-image"></i>
-                                                <h4 class="name">桂林理工大学教室</h4>
-                                                <span class="category">桂林理工大学</span>
-                                            </figure>
-                                            <figure class="item lbimage" data-groups='["category_all", "category_mockups"]'>
-                                                <div class="portfolio-item-img">
-                                                    <img src="https://pic.imgdb.cn/item/66515ba2d9c307b7e9596b89.jpg" alt="桂林理工大学校园一角" title="">
-                                                    <a class="lightbox" title="桂林理工大学校园一角" href="https://pic.imgdb.cn/item/66514530d9c307b7e942f1b4.jpg"></a>
-                                                </div>
-                                                <i class="far fa-image"></i>
-                                                <h4 class="name">桂林理工大学校园一角</h4>
-                                                <span class="category">桂林理工大学</span>
-                                            </figure>
-                                            <figure class="item lbimage" data-groups='["category_all", "category_mockups"]'>
-                                                <div class="portfolio-item-img">
-                                                    <img src="https://pic.imgdb.cn/item/66516034d9c307b7e95da37b.png" alt="桂林理工大学.湖" title="">
-                                                    <a class="lightbox" title="桂林理工大学.湖" href="https://pic.imgdb.cn/item/66515fd3d9c307b7e95d4379.png"></a>
-                                                </div>
-                                                <i class="far fa-image"></i>
-                                                <h4 class="name">桂林理工大学.湖</h4>
-                                                <span class="category">桂林理工大学</span>
-                                            </figure>
-
-                                            <figure class="item lbimage" data-groups='["category_all", "category_mockups"]'>
-                                                <div class="portfolio-item-img">
-                                                    <img src="https://pic.imgdb.cn/item/6651e4c8d9c307b7e9fbd4d9.png" alt="桂林理工大学" title="">
-                                                    <a class="lightbox" title="桂林理工大学" href="https://pic.imgdb.cn/item/6651e43bd9c307b7e9fb350b.jpg"></a>
-                                                </div>
-                                                <i class="far fa-image"></i>
-                                                <h4 class="name">桂林理工大学</h4>
-                                                <span class="category">桂林理工大学</span>
-                                            </figure>
-
-                                            <figure class="item lbimage" data-groups='["category_all", "category_mockups"]'>
-                                                <div class="portfolio-item-img">
-                                                    <img src="https://pic.imgdb.cn/item/66515e11d9c307b7e95badf2.png" alt="桂林理工大学田径场" title="">
-                                                    <a class="lightbox" title="桂林理工大学田径场" href="https://pic.imgdb.cn/item/66515c9dd9c307b7e95a5029.jpg"></a>
-                                                </div>
-                                                <i class="far fa-image"></i>
-                                                <h4 class="name">桂林理工大学田径场</h4>
-                                                <span class="category">桂林理工大学</span>
-                                            </figure>
-
-
-                                            <figure class="item lbimage" data-groups='["category_all", "category_soundcloud"]'>
-                                                <div class="portfolio-item-img">
-                                                    <img src="https://pic.imgdb.cn/item/6651ece4d9c307b7e904ad14.png" alt="广西科技大学柳东校区" title="">
-                                                    <a class="lightbox" title="广西科技大学柳东校区" href="https://pic.imgdb.cn/item/6651ecaed9c307b7e9047782.webp"></a>
-                                                </div>
-                                                <i class="far fa-image"></i>
-                                                <h4 class="name">广西科技大学柳东校区</h4>
-                                                <span class="category">广西科技大学</span>
-                                            </figure>
-
-                                            <figure class="item lbimage" data-groups='["category_all", "category_soundcloud"]'>
-                                            <div class="portfolio-item-img">
-                                            <img src="https://pic.imgdb.cn/item/665167cfd9c307b7e965d9dc.png" alt="广西科技大学柳东校区" title="">
-                                            <a class="lightbox" title="广西科技大学柳东校区" href="https://pic.imgdb.cn/item/66516658d9c307b7e96469c0.jpg"></a>
-                                            </div>
-                                            <i class="far fa-image"></i>
-                                            <h4 class="name">广西科技大学柳东校区</h4>
-                                            <span class="category">广西科技大学</span>
-                                            </figure>
-
-                                            <figure class="item lbimage" data-groups='["category_all", "category_detailed"]'>
-                                                <div class="portfolio-item-img">
-                                                    <img src="https://pic.imgdb.cn/item/6651d5eed9c307b7e9e9a465.png" alt="桂林电子科技大学思援湖" title="">
-                                                    <a class="lightbox" title="桂林电子科技大学思援湖" href="https://pic.imgdb.cn/item/6651d5afd9c307b7e9e965b7.jpg"></a>
-                                                </div>
-                                                <i class="far fa-image"></i>
-                                                <h4 class="name">桂林电子科技大学思援湖</h4>
-                                                <span class="category">桂林电子科技大学</span>
-                                            </figure>
-                                            
-                                            <figure class="item lbimage" data-groups='["category_all", "category_detailed"]'>
-                                                <div class="portfolio-item-img">
-                                                    <img src="https://pic.imgdb.cn/item/6651d797d9c307b7e9eb4010.png" alt="桂林电子科技大学" title="">
-                                                    <a class="lightbox" title="桂林电子科技大学" href="https://pic.imgdb.cn/item/6651d650d9c307b7e9ea0573.jpg"></a>
-                                                </div>
-                                                <i class="far fa-image"></i>
-                                                <h4 class="name">桂林电子科技大学</h4>
-                                                <span class="category">桂林电子科技大学</span>
-                                            </figure>
-
-                                            <figure class="item lbimage" data-groups='["category_all", "category_detailed"]'>
-                                                <div class="portfolio-item-img">
-                                                    <img src="https://pic.imgdb.cn/item/6651d842d9c307b7e9ebdf02.png" alt="桂林电子科技大学" title="">
-                                                    <a class="lightbox" title="桂林电子科技大学" href="https://pic.imgdb.cn/item/6651d813d9c307b7e9ebb2f1.jpg"></a>
-                                                </div>
-                                                <i class="far fa-image"></i>
-                                                <h4 class="name">桂林电子科技大学</h4>
-                                                <span class="category">桂林电子科技大学</span>
-                                            </figure>
-
-                                            <figure class="item lbimage" data-groups='["category_all", "category_detailed"]'>
-                                                <div class="portfolio-item-img">
-                                                    <img src="https://pic.imgdb.cn/item/6651d842d9c307b7e9ebdf02.png" alt="桂林电子科技大学" title="">
-                                                    <a class="lightbox" title="桂林电子科技大学" href="https://pic.imgdb.cn/item/6651d813d9c307b7e9ebb2f1.jpg"></a>
-                                                </div>
-                                                <i class="far fa-image"></i>
-                                                <h4 class="name">桂林电子科技大学</h4>
-                                                <span class="category">桂林电子科技大学</span>
-                                            </figure>
-
-                                            <figure class="item lbimage" data-groups='["category_all", "category_detailed"]'>
-                                                <div class="portfolio-item-img">
-                                                    <img src="https://pic.imgdb.cn/item/6651da1cd9c307b7e9edc290.png" alt="桂林电子科技大学" title="">
-                                                    <a class="lightbox" title="桂林电子科技大学" href="https://pic.imgdb.cn/item/6651da38d9c307b7e9ede025.jpg"></a>
-                                                </div>
-                                                <i class="far fa-image"></i>
-                                                <h4 class="name">桂林电子科技大学</h4>
-                                                <span class="category">桂林电子科技大学</span>
-                                            </figure>
-
-                                            <figure class="item lbimage" data-groups='["category_all", "category_youtube-videos"]'>
-                                                <div class="portfolio-item-img">
-                                                    <img src="https://pic.imgdb.cn/item/6651e371d9c307b7e9fa554a.png" alt="广西科技师范学院" title="">
-                                                    <a class="lightbox" title="广西科技师范学院" href="https://pic.imgdb.cn/item/6651e24bd9c307b7e9f8ef2f.jpg"></a>
-                                                </div>
-                                                <i class="far fa-image"></i>
-                                                <h4 class="name">广西科技师范学院</h4>
-                                                <span class="category">广西科技师范学院</span>
-                                            </figure>
-                                            
-
-                                            <figure class="item lbimage" data-groups='["category_all", "category_youtube-videos"]'>
-                                                <div class="portfolio-item-img">
-                                                    <img src="https://pic.imgdb.cn/item/6651e201d9c307b7e9f88cfd.png" alt="广西科技师范学院" title="">
-                                                    <a class="lightbox" title="广西科技师范学院" href="https://pic.imgdb.cn/item/6651e1d3d9c307b7e9f840f6.jpg"></a>
-                                                </div>
-                                                <i class="far fa-image"></i>
-                                                <h4 class="name">广西科技师范学院</h4>
-                                                <span class="category">广西科技师范学院</span>
-                                            </figure>
-
-                                            <figure class="item lbimage" data-groups='["category_all", "category_mockups"]'>
-                                                <div class="portfolio-item-img">
-                                                    <img src="https://pic.imgdb.cn/item/66515f2ed9c307b7e95ca3bd.png" alt="桂林理工大学新体育馆" title="">
-                                                    <a class="lightbox" title="桂林理工大学新体育馆" href="https://pic.imgdb.cn/item/66515f7cd9c307b7e95ced1d.jpg"></a>
-                                                </div>
-                                                <i class="far fa-image"></i>
-                                                <h4 class="name">桂林理工大学新体育馆</h4>
-                                                <span class="category">桂林理工大学</span>
-                                                
-                                                
-                                            </figure>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                   
-                    <section data-id="contact" class="animated-section">
-                        <div class="page-title">
-                            <h2>Contact</h2>
-                        </div>
-                        <div class="section-content">
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-4">
-                                    <div class="lm-info-block gray-default">
-                                        <i class="lnr lnr-map-marker"></i>
-                                        <h4>San Francisco</h4>
-                                        <span class="lm-info-block-value"></span>
-                                        <span class="lm-info-block-text"></span>
-                                    </div>
-                                    <div class="lm-info-block gray-default">
-                                        <i class="lnr lnr-phone-handset"></i>
-                                        <h4>114 514 114</h4>
-                                        <span class="lm-info-block-value"></span>
-                                        <span class="lm-info-block-text"></span>
-                                    </div>
-                                    <div class="lm-info-block gray-default">
-                                        <i class="lnr lnr-envelope"></i>
-                                        <h4>172975746@qq.com</h4>
-                                        <span class="lm-info-block-value"></span>
-                                        <span class="lm-info-block-text"></span>
-                                    </div>
-                                    <div class="lm-info-block gray-default">
-                                        <i class="lnr lnr-checkmark-circle"></i>
-                                        <h4>Freelance Available</h4>
-                                        <span class="lm-info-block-value"></span>
-                                        <span class="lm-info-block-text"></span>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-8">
-                                    <div id="map" class="map"></div>
-                                    <div class="block-title">
-                                        <h3>How Can I <span>Help You?</span>
-                                        </h3>
-                                    </div>
-                                    <form id="contact_form" class="contact-form" action="contact_form/contact_form.php"
-                                        method="post">
-                                        <div class="messages"></div>
-                                        <div class="controls two-columns">
-                                            <div class="fields clearfix">
-                                                <div class="left-column">
-                                                    <div class="form-group form-group-with-icon">
-                                                        <input id="form_name" type="text" name="name"
-                                                            class="form-control" placeholder="" required="required"
-                                                            data-error="Name is required.">
-                                                        <label>Full Name</label>
-                                                        <div class="form-control-border"></div>
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                    <div class="form-group form-group-with-icon">
-                                                        <input id="form_email" type="email" name="email"
-                                                            class="form-control" placeholder="" required="required"
-                                                            data-error="Valid email is required.">
-                                                        <label>Email Address</label>
-                                                        <div class="form-control-border"></div>
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                    <div class="form-group form-group-with-icon">
-                                                        <input id="form_subject" type="text" name="subject"
-                                                            class="form-control" placeholder="" required="required"
-                                                            data-error="Subject is required.">
-                                                        <label>Subject</label>
-                                                        <div class="form-control-border"></div>
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="right-column">
-                                                    <div class="form-group form-group-with-icon">
-                                                        <textarea id="form_message" name="message" class="form-control"
-                                                            placeholder="" rows="7" required="required"
-                                                            data-error="Please, leave me a message."></textarea>
-                                                        <label>Message</label>
-                                                        <div class="form-control-border"></div>
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="g-recaptcha"
-                                                data-sitekey="6LdqmCAUAAAAAMMNEZvn6g4W5e0or2sZmAVpxVqI"></div>
-                                            <input type="submit" class="button btn-send" value="Send message">
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="js/jquery-2.1.3.min.js"></script>
-    <script src="js/modernizr.custom.js"></script>
-    <script src="js/animating.js"></script>
-    <script src="js/imagesloaded.pkgd.min.js"></script>
-    <script src='js/perfect-scrollbar.min.js'></script>
-    <script src='js/jquery.shuffle.min.js'></script>
-    <script src='js/masonry.pkgd.min.js'></script>
-    <script src='js/owl.carousel.min.js'></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="../../../maps/api/js.js"></script>
-    <script src="js/jquery.googlemap.js"></script>
-    <script src="js/validator.js"></script>
-    <script src="js/main.js"></script>
-    <a href="" style="display:none;"></a>
 </body>
-
 </html>
